@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COCOMO Estimation Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+    <!-- Page Title -->
+    <h2>COCOMO Estimation Assistant</h2>
+
+    <!-- Section Title - Project Info -->
+    <h3>Project Information</h3>
+
+    <!-- KLOC text box -->
+    <label>KLOC:</label>
+    <input type="number" id="kloc" min = "0.1" step = "1" required>
+
+    <!-- Project Types Dropdown -->
+    <label>Project Type:</label>
+    <select id="type">
+        <option value="organic">Organic</option>
+        <option value="semi">Semi-Detached</option>
+        <option value="embedded">Embedded</option>
+    </select>
+
+    <!-- Section Title - EAFs -->
+    <h2>Cost Drivers</h2>
+
+    <h3>Product Attributes</h3>
+      <!-- RELY -->
+    <label>How reliable does the software need to be?</label>
+    <select id="reliability">
+        <option value="0.75">Very Low</option>
+        <option value="0.88">Low</option>
+        <option value="1.0" selected>Nominal</option>
+        <option value="1.15">High</option>
+        <option value="1.40">Very High</option>
+    </select>
+
+      <!-- DATA -->
+    <label>How large is the application database?</label>
+    <select id="data">
+        <option value="0.94">Small</option>
+        <option value="1.0" selected>Nominal</option>
+        <option value="1.08">Large</option>
+        <option value="1.16">Very Large</option>
+    </select>
+
+      <!-- CPLX -->
+    <label>How complex will the end software be?</label>
+    <select id="complexity">
+        <option value="0.70">Not Complex</option>
+        <option value="0.85">A Little Complex</option>
+        <option value="1.0" selected>Nominal</option>
+        <option value="1.15">Somewhat Complex</option>
+        <option value="1.30">Highly Complex</option>
+    </select>
+
+     <h3>Hardware Attributes</h3>
+
+      <!-- TIME -->
+    <label>How important is fast performance?</label>
+    <select id="performance">
+        <option value="1.0" selected>Nominal</option>
+        <option value="1.11">Somewhat Important</option>
+        <option value="1.30">Highly Important</option>
+        <option value="1.66">Extremely Important</option>
+    </select>
+
+      <!-- STOR-->
+    <label>How much memory is available for this software?</label>
+    <select id="memory">
+        <option value="1.0" selected>Nominal (Plenty of Space)</option>
+        <option value="1.06">Somewhat Limited</option>
+        <option value="1.21">Very Limited</option>
+        <option value="1.66">Extremely Limited (Little Space)</option>
+    </select>
+
+      <!-- VIRT -->
+    <label>Will the hardware/OS remain stable during development?</label>
+    <select id="volatility">
+        <option value="0.87">Few Changes (Stable)</option>
+        <option value="1.0" selected>Nominal</option>
+        <option value="1.15">Some Changes</option>
+        <option value="1.30">Many Changes (Unstable)</option>
+    </select>
+
+     <h3>Personal Attributes</h3>
+
+      <!-- ACAP -->
+    <label>How capable are the analysts for this software?</label>
+    <select id="acap">
+        <option value="1.46">Very Low</option>
+        <option value="1.19">Low</option>
+        <option value="1.0" selected>Nominal</option>
+        <option value="0.86">High</option>
+         <option value="0.71">Very High</option>
+    </select>
+
+      <!-- PCAP -->
+    <label>How technically strong are the developers?</label>
+    <select id="pcap">
+        <option value="1.42">Very Low</option>
+        <option value="1.17">Low</option>
+        <option value="1.0" selected>Nominal</option>
+        <option value="0.86">High</option>
+        <option value="0.70">Very High</option>
+    </select>
+
+     <h3>Project Attributes</h3>
+
+     <!-- MODP-->
+    <label>To what degree will the developers use modern software engineering practices?*</label>
+    <select id="modp">
+        <option value="1.24">Very Low</option>
+        <option value="1.10">Low</option>
+        <option value="1.0" selected>Nominal</option>
+        <option value="0.91">High</option>
+        <option value="0.82">Very High</option>
+    </select>
+
+    <!-- TOOL-->
+    <label>What extent will extra software tools be used?</label>
+    <select id="tool">
+        <option value="1.24">Very Low</option>
+        <option value="1.10">Low</option>
+        <option value="1.0" selected>Nominal</option>
+        <option value="0.91">High</option>
+        <option value="0.83">Very High</option>
+    </select>
+
+     <!-- SCED -->
+    <label>How tight or generous is the development schedule?</label>
+    <select id="schedule">
+         <option value="1.23">Very Tight</option>
+        <option value="1.08">Tight</option>
+        <option value="1.0" selected>Nominal</option>
+        <option value="1.04">Above Average</option>
+        <option value="1.10">Generous</option>
+    </select>
+
+    <button onclick="calculate()">Calculate Effort</button>
+
+    <div class="results">
+        <h3>Results</h3>
+        <p>Effort (Person-Months): <span id="effort">-</span></p>
+        <p>Development Time (Months): <span id="time">-</span></p>
+        <p>Team Size: <span id="team">-</span></p>
+    </div>
+
+    <button onclick="showHelp()">Help</button>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
