@@ -1,4 +1,4 @@
-//Calculator class to calculate all needed COCOMO values
+//Calculator class to calculate all necessary COCOMO values
 class COCOMOCalculator {
     //constructor
     constructor(kloc, type, eaf) {
